@@ -1,0 +1,5 @@
+# Lindungi file yang tidak boleh dibuka dari browser
+<FilesMatch "\.(sql|md)$|^config\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

@@ -1,0 +1,235 @@
+/* Sistem Keuangan PAC IPNU IPPNU Cikarang Utara
+   Warna diambil dari logo: biru dongker ornamen + hijau lambang IPNU/IPPNU */
+:root {
+  --navy: #1F3557;
+  --navy-tua: #172843;
+  --navy-muda: #E7ECF4;
+  --hijau: #1A7A3A;
+  --hijau-muda: #E5F3E9;
+  --merah: #B42318;
+  --merah-muda: #FCEBE9;
+  --cash: #8A4B00;
+  --cash-muda: #FCF0DF;
+  --qris: #5A3E9E;
+  --qris-muda: #EFEAFA;
+  --tinta: #182230;
+  --redup: #536072;
+  --garis: #D9DFE8;
+  --latar: #F3F5F9;
+  --putih: #FFFFFF;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--tinta);
+  background: var(--latar);
+}
+h1, h2 { margin: 0; line-height: 1.25; }
+p { margin: 0; }
+a { color: var(--navy); }
+:focus-visible { outline: 3px solid #F2B705; outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.muted { color: var(--redup); font-weight: 400; }
+[hidden] { display: none !important; }
+
+/* ---------- Layout ---------- */
+.app { display: flex; flex-wrap: wrap; min-height: 100vh; }
+.sidebar {
+  flex: 1 1 250px;
+  max-width: 100%;
+  background: var(--navy);
+  color: #fff;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.konten {
+  flex: 999 1 560px;
+  min-width: 0;
+  padding: 28px clamp(16px, 3vw, 40px) 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+.brand img { width: 52px; height: 52px; object-fit: contain; background: #fff; border-radius: 12px; padding: 4px; }
+.brand strong { display: block; font-size: 15px; }
+.brand small { display: block; font-size: 13px; color: #C9D4E6; }
+
+.sidebar nav { display: flex; flex-direction: column; gap: 4px; }
+.nav-link {
+  display: flex; align-items: center; gap: 12px;
+  min-height: 46px; padding: 0 14px; border-radius: 10px;
+  color: #E2E9F4; text-decoration: none; font-weight: 600; font-size: 15px;
+}
+.nav-link svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.nav-link:hover { background: rgba(255,255,255,.08); }
+.nav-link.aktif { background: #fff; color: var(--navy); }
+
+.sidebar-foot { margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.15); display: flex; flex-direction: column; gap: 12px; }
+.admin-chip { display: flex; align-items: center; gap: 10px; }
+.admin-chip strong { display: block; font-size: 14px; }
+.admin-chip small { display: block; font-size: 12px; color: #C9D4E6; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--navy-muda); color: var(--navy); display: grid; place-items: center; font-weight: 800; }
+
+.topbar { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px; }
+.topbar h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.01em; }
+.tanggal-hari { font-size: 13px; color: var(--redup); font-weight: 500; }
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 18px; border-radius: 10px;
+  font: inherit; font-size: 15px; font-weight: 700; text-decoration: none;
+  cursor: pointer; border: 1px solid transparent;
+}
+.btn-utama { background: var(--navy); color: #fff; }
+.btn-utama:hover { background: var(--navy-tua); }
+.btn-garis { background: #fff; color: var(--tinta); border-color: #BCC6D4; }
+.btn-garis:hover { border-color: var(--navy); }
+.btn-keluar { width: 100%; background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+.btn-keluar:hover { background: rgba(255,255,255,.08); }
+.btn-penuh { width: 100%; margin-top: 8px; }
+.ikon-btn { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tautan { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--navy); cursor: pointer; text-decoration: none; min-height: 32px; }
+.tautan:hover { text-decoration: underline; }
+.tautan-hapus { color: var(--merah); }
+
+/* ---------- Kartu ---------- */
+.kartu { background: var(--putih); border: 1px solid var(--garis); border-radius: var(--radius); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+.kartu h2 { font-size: 14px; font-weight: 600; color: var(--redup); }
+.kartu .judul-bagian { font-size: 18px; font-weight: 700; color: var(--tinta); }
+.kepala-kartu { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.angka { font-size: 26px; font-weight: 800; }
+.angka-besar { font-size: 34px; font-weight: 800; letter-spacing: -0.01em; }
+.rincian { font-size: 13px; color: var(--redup); }
+
+.grid-saldo { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+.grid-bulan { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+.kartu.kecil .angka { font-size: 21px; }
+
+.kartu-total { background: var(--navy); border-color: var(--navy); color: #fff; }
+.kartu-total h2 { color: #C9D4E6; }
+.bar-komposisi { display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: rgba(255,255,255,.15); margin-top: 4px; }
+.bar-cash { background: #F4B860; }
+.bar-qris { background: #B9A6EE; }
+.keterangan-bar { font-size: 13px; color: #DCE4F1; }
+
+.judul-metode { display: flex; align-items: center; gap: 10px; }
+.ikon { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; }
+.ikon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ikon-cash { background: var(--cash-muda); color: var(--cash); }
+.ikon-qris { background: var(--qris-muda); color: var(--qris); }
+
+.teks-masuk { color: var(--hijau); }
+.teks-keluar { color: var(--merah); }
+.tebal { font-weight: 700; }
+.kanan { text-align: right; }
+.nowrap { white-space: nowrap; }
+
+/* ---------- Daftar terbaru ---------- */
+.daftar-terbaru { list-style: none; margin: 0; padding: 0; }
+.daftar-terbaru li { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 13px 0; border-top: 1px solid #EDF0F5; }
+.daftar-terbaru .isi { flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; }
+.daftar-terbaru small { color: var(--redup); font-size: 13px; }
+.daftar-terbaru .nominal { min-width: 140px; text-align: right; font-weight: 700; }
+.tanda { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 17px; flex-shrink: 0; }
+.tanda-masuk { background: var(--hijau-muda); color: var(--hijau); }
+.tanda-keluar { background: var(--merah-muda); color: var(--merah); }
+
+.badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.badge-cash { background: var(--cash-muda); color: var(--cash); }
+.badge-qris { background: var(--qris-muda); color: var(--qris); }
+.badge-masuk { background: var(--hijau-muda); color: var(--hijau); }
+.badge-keluar { background: var(--merah-muda); color: var(--merah); }
+
+/* ---------- Tabel ---------- */
+.tabel-wrap { overflow-x: auto; }
+.tabel { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
+.tabel th { text-align: left; font-size: 13px; font-weight: 600; color: var(--redup); padding: 10px 12px; border-bottom: 1px solid var(--garis); }
+.tabel th.kanan { text-align: right; }
+.tabel td { padding: 12px; border-bottom: 1px solid #EDF0F5; vertical-align: top; }
+.tabel .aksi { display: flex; gap: 14px; align-items: center; white-space: nowrap; }
+.tabel .aksi form { margin: 0; }
+.tabel .baris-akhir td { font-weight: 800; background: var(--navy-muda); border-bottom: 0; }
+.tabel-ringkasan { min-width: 520px; }
+
+.filter-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 6px; }
+.segmen { display: flex; flex-wrap: wrap; gap: 4px; background: #EBEFF5; padding: 4px; border-radius: 12px; }
+.segmen a { min-height: 38px; padding: 0 14px; display: inline-flex; align-items: center; border-radius: 9px; text-decoration: none; color: #3A4657; font-weight: 600; font-size: 14px; }
+.segmen a.aktif { background: #fff; color: var(--navy); box-shadow: 0 1px 2px rgba(23,40,67,.12); }
+.form-cari { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.form-cari label { font-weight: 600; font-size: 14px; }
+.total-bawah { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 22px; font-size: 14px; padding-top: 6px; }
+.kosong { color: var(--redup); text-align: center; padding: 20px; }
+.laporan-aksi { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+
+/* ---------- Form ---------- */
+input[type=text], input[type=password], input[type=date], input[type=month], input[type=search], textarea {
+  font: inherit; font-size: 15px; color: var(--tinta);
+  min-height: 44px; padding: 0 12px;
+  border: 1px solid #BCC6D4; border-radius: 10px; background: #fff; width: 100%;
+}
+.form-cari input { width: auto; }
+textarea { padding: 10px 12px; resize: vertical; }
+input:focus, textarea:focus { border-color: var(--navy); outline: none; box-shadow: 0 0 0 3px rgba(31,53,87,.18); }
+
+.form-kartu { max-width: 880px; }
+.form-kartu.sempit { max-width: 520px; }
+.form-kartu form { display: flex; flex-direction: column; gap: 18px; }
+.grid-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label, .pilihan legend { font-size: 13px; font-weight: 600; color: #36435A; }
+.nilai-tetap { font-weight: 700; }
+.pesan-error { color: var(--merah); font-size: 13px; font-weight: 600; }
+
+.pilihan { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pilihan legend { margin-bottom: 6px; padding: 0; width: 100%; }
+.opsi { flex: 1 1 120px; position: relative; }
+.opsi input { position: absolute; opacity: 0; inset: 0; }
+.opsi span {
+  display: flex; align-items: center; justify-content: center; min-height: 44px;
+  border: 1.5px solid #BCC6D4; border-radius: 10px; font-weight: 600; cursor: pointer; background: #fff;
+}
+.opsi input:focus-visible + span { outline: 3px solid #F2B705; outline-offset: 2px; }
+.opsi-masuk input:checked + span { border-color: var(--hijau); background: var(--hijau-muda); color: var(--hijau); }
+.opsi-keluar input:checked + span { border-color: var(--merah); background: var(--merah-muda); color: var(--merah); }
+.opsi-cash input:checked + span { border-color: var(--cash); background: var(--cash-muda); color: var(--cash); }
+.opsi-qris input:checked + span { border-color: var(--qris); background: var(--qris-muda); color: var(--qris); }
+.tombol-form { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+
+.flash { padding: 12px 16px; border-radius: 10px; font-weight: 600; font-size: 14px; }
+.flash-sukses { background: var(--hijau-muda); color: #145F2D; }
+.flash-gagal { background: var(--merah-muda); color: var(--merah); }
+
+/* ---------- Login ---------- */
+.halaman-login { display: flex; flex-wrap: wrap; min-height: 100vh; }
+.login-kiri {
+  flex: 1 1 420px; background: var(--navy); color: #fff;
+  padding: clamp(32px, 6vw, 72px);
+  display: flex; flex-direction: column; justify-content: center; gap: 18px;
+}
+.login-logo { width: 150px; height: auto; background: #fff; border-radius: 24px; padding: 14px; }
+.login-kiri h1 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; letter-spacing: -0.02em; }
+.login-kiri p { max-width: 440px; color: #DCE4F1; font-size: 16px; line-height: 1.6; }
+.login-kanan { flex: 1 1 420px; display: flex; align-items: center; justify-content: center; padding: clamp(32px, 6vw, 72px); }
+.login-form { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 10px; }
+.login-form h2 { font-size: 26px; font-weight: 800; }
+.login-form label { font-size: 13px; font-weight: 600; margin-top: 8px; }
+
+@media (max-width: 820px) {
+  .sidebar { gap: 16px; }
+  .sidebar nav { flex-direction: row; flex-wrap: wrap; }
+  .nav-link { flex: 1 1 160px; }
+  .sidebar-foot { flex-direction: row; align-items: center; justify-content: space-between; }
+  .btn-keluar { width: auto; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
